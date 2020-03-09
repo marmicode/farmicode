@@ -17,6 +17,9 @@
     "farmazon-e2e": {
       "tags": [],
       "implicitDependencies": ["farmazon"]
+    },
+    "catalog-api": {
+      "tags": []
     }
   }
 }
