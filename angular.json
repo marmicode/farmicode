@@ -119,6 +119,61 @@
           }
         }
       }
+    },
+    "catalog-api": {
+      "root": "apps/catalog-api",
+      "sourceRoot": "apps/catalog-api/src",
+      "projectType": "application",
+      "prefix": "catalog-api",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/catalog-api",
+            "main": "apps/catalog-api/src/main.ts",
+            "tsConfig": "apps/catalog-api/tsconfig.app.json",
+            "assets": ["apps/catalog-api/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/catalog-api/src/environments/environment.ts",
+                  "with": "apps/catalog-api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "catalog-api:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/catalog-api/tsconfig.app.json",
+              "apps/catalog-api/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/catalog-api/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/catalog-api/jest.config.js",
+            "tsConfig": "apps/catalog-api/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
