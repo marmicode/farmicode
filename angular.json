@@ -83,12 +83,15 @@
           }
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
+          "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "jestConfig": "apps/farmazon/jest.config.js",
+            "main": "apps/farmazon/src/test.ts",
             "tsConfig": "apps/farmazon/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "apps/farmazon/src/test-setup.ts"
+            "karmaConfig": "apps/farmazon/karma.conf.js",
+            "polyfills": "apps/farmazon/src/polyfills.ts",
+            "styles": [],
+            "scripts": [],
+            "assets": []
           }
         }
       }
