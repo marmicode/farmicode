@@ -17,9 +17,6 @@ export interface Animal {
   price: number;
 }
 
-/**
- * @deprecated 🚧 Work in progress.
- */
 export function createAnimal(animal: Animal): Animal {
   return {
     id: animal.id,

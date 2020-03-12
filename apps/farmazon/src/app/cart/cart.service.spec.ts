@@ -15,7 +15,7 @@ describe('CartService', () => {
     expect(cart).toBeTruthy();
   });
 
-  it('🚧 should add animal', () => {
+  it('should add animal', () => {
     const dolly = createAnimal({
       id: 'dolly',
       type: AnimalType.Sheep,
