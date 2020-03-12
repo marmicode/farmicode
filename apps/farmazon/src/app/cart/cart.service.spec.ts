@@ -39,6 +39,6 @@ describe('CartService', () => {
     cart.addAnimal(missy);
     cart.addAnimal(droopy);
 
-    // expect(cart.getAnimalList()).toEqual([dolly, missy, droopy]);
+    expect(cart.getAnimalList()).toEqual([dolly, missy, droopy]);
   });
 });

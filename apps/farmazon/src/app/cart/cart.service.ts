@@ -18,6 +18,6 @@ export class Cart {
    * @deprecated 🚧 Work in progress.
    */
   getAnimalList(): Animal[] {
-    throw new Error('🚧 work in progress!');
+    return this._animals;
   }
 }
