@@ -18,7 +18,5 @@ describe('AnimalSearchComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  it.todo('🚧 should search for animals');
 });
