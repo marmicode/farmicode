@@ -18,18 +18,21 @@ describe('CartService', () => {
   beforeEach(() => {
     dolly = createAnimal({
       id: 'dolly',
+      name: 'Dolly',
       type: AnimalType.Sheep,
       gender: Gender.Other,
       price: 1000
     });
     missy = createAnimal({
       id: 'missy',
+      name: 'Missy',
       type: AnimalType.Cat,
       gender: Gender.Female,
       price: 300
     });
     droopy = createAnimal({
       id: 'droopy',
+      name: 'Droopy',
       type: AnimalType.Dog,
       gender: Gender.Male,
       price: 100

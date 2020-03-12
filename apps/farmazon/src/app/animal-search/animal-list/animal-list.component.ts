@@ -1,5 +1,6 @@
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, Input, NgModule, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Animal } from '../../cart/animal';
 
 @Component({
   selector: 'fz-animal-list',
@@ -7,6 +8,8 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./animal-list.component.css']
 })
 export class AnimalListComponent implements OnInit {
+  @Input() animals: Animal[];
+
   constructor() {}
 
   ngOnInit(): void {}
