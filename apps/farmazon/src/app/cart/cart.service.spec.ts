@@ -50,19 +50,19 @@ describe('CartService', () => {
     expect(cart.getAnimalList()).toEqual([dolly, missy, droopy]);
   });
 
-  xit('🚧 should notify observers with animals list when they subscribe', () => {
+  it('should notify observers with animals list when they subscribe', () => {
     cart.addAnimal(dolly);
     cart.addAnimal(missy);
     cart.addAnimal(droopy);
 
-    // cart.animals$.subscribe(observer);
+    cart.animals$.subscribe(observer);
 
     expect(observer).toHaveBeenCalledTimes(1);
     expect(observer).toHaveBeenCalledWith([dolly, missy, droopy]);
   });
 
-  xit('🚧 should notify observers when adding animals', () => {
-    // cart.animals$.subscribe(observer);
+  it('should notify observers when adding animals', () => {
+    cart.animals$.subscribe(observer);
 
     cart.addAnimal(dolly);
     cart.addAnimal(missy);
