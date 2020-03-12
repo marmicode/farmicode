@@ -8,6 +8,7 @@ describe('CartService', () => {
   let dolly: Animal;
   let missy: Animal;
   let droopy: Animal;
+  let observer: jest.Mock;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
@@ -33,6 +34,8 @@ describe('CartService', () => {
       gender: Gender.Male,
       price: 100
     });
+
+    observer = jest.fn();
   });
 
   it('should be created', () => {
@@ -52,13 +55,25 @@ describe('CartService', () => {
     cart.addAnimal(missy);
     cart.addAnimal(droopy);
 
-    const observer = jest.fn();
-
-    cart.animals$.subscribe(observer);
+    // cart.animals$.subscribe(observer);
 
     expect(observer).toHaveBeenCalledTimes(1);
     expect(observer).toHaveBeenCalledWith([dolly, missy, droopy]);
   });
 
-  it.todo('🚧 should notify observers when adding animals');
+  xit('🚧 should notify observers when adding animals', () => {
+    // cart.animals$.subscribe(observer);
+
+    cart.addAnimal(dolly);
+    cart.addAnimal(missy);
+    cart.addAnimal(droopy);
+
+    expect(observer).toHaveBeenCalledTimes(4);
+    expect(observer.mock.calls).toEqual([
+      [[]],
+      [[dolly]],
+      [[dolly, missy]],
+      [[dolly, missy, droopy]]
+    ]);
+  });
 });
