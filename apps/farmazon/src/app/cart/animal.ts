@@ -11,15 +11,20 @@ export enum Gender {
 }
 
 export interface Animal {
-  gender: Gender;
-  price: number;
   id: string;
   type: AnimalType;
+  gender: Gender;
+  price: number;
 }
 
 /**
  * @deprecated 🚧 Work in progress.
  */
 export function createAnimal(animal: Animal): Animal {
-  throw new Error('🚧 work in progress!');
+  return {
+    id: animal.id,
+    type: animal.type,
+    gender: animal.gender,
+    price: animal.price
+  };
 }
