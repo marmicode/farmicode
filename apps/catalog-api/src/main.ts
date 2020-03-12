@@ -9,8 +9,6 @@ const middlewares = jsonServer.defaults({
   static: join(rootPath, 'assets/public')
 });
 
-console.log(join(process.cwd(), rootPath, 'assets/db.json'));
-
 server.use(middlewares);
 server.use(router);
 server.listen(3000, () => {
