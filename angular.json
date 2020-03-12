@@ -6,7 +6,7 @@
       "schematics": {},
       "root": "apps/farmazon",
       "sourceRoot": "apps/farmazon/src",
-      "prefix": "farmazon",
+      "prefix": "fz",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
