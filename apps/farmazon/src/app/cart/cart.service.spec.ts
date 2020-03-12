@@ -41,4 +41,8 @@ describe('CartService', () => {
 
     expect(cart.getAnimalList()).toEqual([dolly, missy, droopy]);
   });
+
+  it.todo('🚧 should notify observers with animals list when they subscribe');
+
+  it.todo('🚧 should notify observers when adding animals');
 });
