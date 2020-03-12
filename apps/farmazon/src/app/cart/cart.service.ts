@@ -5,11 +5,13 @@ import { Animal } from './animal';
   providedIn: 'root'
 })
 export class Cart {
+  private _animals: Animal[] = [];
+
   /**
    * @deprecated 🚧 Work in progress.
    */
   addAnimal(animal: Animal) {
-    throw new Error('🚧 work in progress!');
+    this._animals = [...this._animals, animal];
   }
 
   /**

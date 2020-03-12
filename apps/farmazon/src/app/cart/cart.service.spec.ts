@@ -35,9 +35,9 @@ describe('CartService', () => {
       price: 100
     });
 
-    // cart.addAnimal(dolly);
-    // cart.addAnimal(missy);
-    // cart.addAnimal(droopy);
+    cart.addAnimal(dolly);
+    cart.addAnimal(missy);
+    cart.addAnimal(droopy);
 
     // expect(cart.getAnimalList()).toEqual([dolly, missy, droopy]);
   });
