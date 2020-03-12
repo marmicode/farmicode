@@ -4,7 +4,9 @@ import { join } from 'path';
 const rootPath = 'apps/catalog-api/src';
 
 const server = jsonServer.create();
-const router = jsonServer.router(join(process.cwd(), rootPath, 'assets/db.json'));
+const router = jsonServer.router(
+  join(process.cwd(), rootPath, 'assets/db.json')
+);
 const middlewares = jsonServer.defaults({
   static: join(rootPath, 'assets/public')
 });
