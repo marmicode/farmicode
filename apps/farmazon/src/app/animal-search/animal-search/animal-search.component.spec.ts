@@ -3,9 +3,13 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
 import { AnimalType, createAnimal, Gender } from '../../cart/animal';
+import { AnimalListComponent } from '../animal-list/animal-list.component';
 import { AnimalSearch } from '../animal-search.service';
 
-import { AnimalSearchComponent } from './animal-search.component';
+import {
+  AnimalSearchComponent,
+  AnimalSearchModule
+} from './animal-search.component';
 
 describe('AnimalSearchComponent', () => {
   let component: AnimalSearchComponent;
@@ -13,8 +17,7 @@ describe('AnimalSearchComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AnimalSearchComponent],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+      imports: [AnimalSearchModule]
     }).compileComponents();
   }));
 
@@ -55,7 +58,9 @@ describe('AnimalSearchComponent', () => {
     expect(animalSearch.search).toHaveBeenCalledWith({ keywords: '🐈' });
 
     /* Check that animals are passed to animal list component. */
-    const animalListEl = fixture.debugElement.query(By.css('fz-animal-list'));
-    expect(animalListEl.properties.animals).toEqual([dolly, missy]);
+    const animalListEl = fixture.debugElement.query(
+      By.directive(AnimalListComponent)
+    );
+    expect(animalListEl.componentInstance.animals).toEqual([dolly, missy]);
   });
 });
