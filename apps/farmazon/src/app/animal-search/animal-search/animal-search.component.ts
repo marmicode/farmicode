@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, NgModule } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import { Animal } from '../../cart/animal';
 import { AnimalListModule } from '../animal-list/animal-list.component';
 import { AnimalSearch } from '../animal-search.service';
@@ -10,14 +12,18 @@ import { AnimalSearch } from '../animal-search.service';
   styleUrls: ['./animal-search.component.css']
 })
 export class AnimalSearchComponent {
-  animals: Animal[];
+  animals$: Observable<Animal[]>;
 
-  constructor(private _animalSearch: AnimalSearch) {}
+  private _keywords$ = new Subject<string>();
+
+  constructor(private _animalSearch: AnimalSearch) {
+    this.animals$ = this._keywords$.pipe(
+      switchMap(keywords => this._animalSearch.search({ keywords }))
+    );
+  }
 
   search(keywords: string) {
-    this._animalSearch
-      .search({ keywords })
-      .subscribe(animals => (this.animals = animals));
+    this._keywords$.next(keywords);
   }
 }
 
