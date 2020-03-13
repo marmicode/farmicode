@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, NgModule } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { Animal } from '../../cart/animal';
@@ -13,6 +14,9 @@ import { AnimalSearch } from '../animal-search.service';
 })
 export class AnimalSearchComponent {
   animals$: Observable<Animal[]>;
+  searchForm = new FormGroup({
+    keywords: new FormControl()
+  });
 
   private _keywords$ = new Subject<string>();
 
@@ -22,14 +26,14 @@ export class AnimalSearchComponent {
     );
   }
 
-  search(keywords: string) {
-    this._keywords$.next(keywords);
+  search() {
+    this._keywords$.next(this.searchForm.value.keywords);
   }
 }
 
 @NgModule({
   declarations: [AnimalSearchComponent],
-  imports: [CommonModule, AnimalListModule],
+  imports: [CommonModule, AnimalListModule, ReactiveFormsModule],
   exports: [AnimalSearchComponent]
 })
 export class AnimalSearchModule {}

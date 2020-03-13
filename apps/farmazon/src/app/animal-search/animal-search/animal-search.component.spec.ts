@@ -4,7 +4,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
 import { AnimalType, createAnimal, Gender } from '../../cart/animal';
-import { AnimalListComponent } from '../animal-list/animal-list.component';
 import { AnimalListHarness } from '../animal-list/animal-list.component.harness';
 import { AnimalSearch } from '../animal-search.service';
 
@@ -17,6 +16,15 @@ describe('AnimalSearchComponent', () => {
   let component: AnimalSearchComponent;
   let fixture: ComponentFixture<AnimalSearchComponent>;
   let loader: HarnessLoader;
+
+  function search(keywords: string) {
+    let inputEl = fixture.debugElement.query(By.css('input'));
+    inputEl.nativeElement.value = keywords;
+    inputEl.nativeElement.dispatchEvent(new Event('input'));
+    fixture.debugElement
+      .query(By.css('form'))
+      .triggerEventHandler('submit', {});
+  }
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -54,7 +62,7 @@ describe('AnimalSearchComponent', () => {
     jest.spyOn(animalSearch, 'search').mockReturnValue(of([dolly, missy]));
 
     /* 🎬 Action! */
-    component.search('🐈');
+    search('🐈');
 
     /* Check animal search service has been called properly. */
     expect(animalSearch.search).toHaveBeenCalledTimes(1);
