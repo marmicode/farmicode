@@ -11,19 +11,19 @@ import {
   AnimalSearchComponent,
   AnimalSearchModule
 } from './animal-search.component';
+import { AnimalSearchHarness } from './animal-search.component.harness';
 
 describe('AnimalSearchComponent', () => {
   let component: AnimalSearchComponent;
   let fixture: ComponentFixture<AnimalSearchComponent>;
   let loader: HarnessLoader;
 
-  function search(keywords: string) {
-    let inputEl = fixture.debugElement.query(By.css('input'));
-    inputEl.nativeElement.value = keywords;
-    inputEl.nativeElement.dispatchEvent(new Event('input'));
-    fixture.debugElement
-      .query(By.css('form'))
-      .triggerEventHandler('submit', {});
+  async function search(keywords: string) {
+    const harness = await TestbedHarnessEnvironment.harnessForFixture(
+      fixture,
+      AnimalSearchHarness
+    );
+    await harness.search(keywords);
   }
 
   beforeEach(async(() => {
@@ -62,7 +62,7 @@ describe('AnimalSearchComponent', () => {
     jest.spyOn(animalSearch, 'search').mockReturnValue(of([dolly, missy]));
 
     /* 🎬 Action! */
-    search('🐈');
+    await search('🐈');
 
     /* Check animal search service has been called properly. */
     expect(animalSearch.search).toHaveBeenCalledTimes(1);
