@@ -2,16 +2,8 @@ import { AnimalType, createAnimal, Gender } from './animal';
 import { computeAnimalPrice } from './compute-animal-price';
 
 describe('computeAnimalPrice', () => {
-  let now;
-
   beforeEach(() => {
-    /* @todo replace this by mocks when we'll learn more about them. */
-    now = Date.now;
-    Date.now = () => new Date(2025, 5, 1).getTime();
-  });
-
-  afterEach(() => {
-    Date.now = now;
+    jest.spyOn(Date, 'now').mockReturnValue(new Date(2025, 5, 1).getTime());
   });
 
   it.each([
