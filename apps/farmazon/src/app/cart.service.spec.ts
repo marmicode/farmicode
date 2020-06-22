@@ -19,7 +19,7 @@ describe('CartService', () => {
     const dolly = createAnimal({
       id: 'dolly',
       type: AnimalType.Sheep,
-      gender: Gender.Other,
+      gender: Gender.Female,
       price: 1000
     });
     const missy = createAnimal({
