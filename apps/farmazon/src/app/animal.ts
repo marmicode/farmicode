@@ -13,7 +13,7 @@ export interface Animal {
   id: string;
   type: AnimalType;
   name: string;
-  birthDate: Date;
+  bornAt: Date;
   gender: Gender;
   price: number;
 }
@@ -23,7 +23,7 @@ export function createAnimal(animal: Partial<Animal>): Animal {
     id: animal.id,
     type: animal.type,
     name: animal.name,
-    birthDate: animal.birthDate,
+    bornAt: animal.bornAt,
     gender: animal.gender,
     price: animal.price
   };

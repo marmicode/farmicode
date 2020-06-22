@@ -21,7 +21,7 @@ describe('computeAnimalPrice', () => {
         animal: createAnimal({
           type: AnimalType.Cat,
           gender: Gender.Female,
-          birthDate: new Date(2025, 1, 1)
+          bornAt: new Date(2025, 1, 1)
         }),
         price: 0
       }
@@ -32,7 +32,7 @@ describe('computeAnimalPrice', () => {
         animal: createAnimal({
           type: AnimalType.Dog,
           gender: Gender.Male,
-          birthDate: new Date(2025, 1, 1)
+          bornAt: new Date(2025, 1, 1)
         }),
         price: 300
       }
@@ -43,7 +43,7 @@ describe('computeAnimalPrice', () => {
         animal: createAnimal({
           type: AnimalType.Sheep,
           gender: Gender.Male,
-          birthDate: new Date(2025, 1, 1)
+          bornAt: new Date(2025, 1, 1)
         }),
         price: 100
       }
@@ -54,7 +54,7 @@ describe('computeAnimalPrice', () => {
         animal: createAnimal({
           type: AnimalType.Sheep,
           gender: Gender.Female,
-          birthDate: new Date(2025, 1, 1)
+          bornAt: new Date(2025, 1, 1)
         }),
         price: 200
       }
@@ -66,7 +66,7 @@ describe('computeAnimalPrice', () => {
           type: AnimalType.Dog,
           gender: Gender.Male,
           /* 4 years old. */
-          birthDate: new Date(2020, 12, 1)
+          bornAt: new Date(2020, 12, 1)
         }),
         price: 60
       }
@@ -78,7 +78,7 @@ describe('computeAnimalPrice', () => {
           type: AnimalType.Dog,
           gender: Gender.Male,
           /* 4 years old. */
-          birthDate: new Date(2010, 12, 1)
+          bornAt: new Date(2010, 12, 1)
         }),
         price: 0
       }

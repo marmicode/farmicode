@@ -13,7 +13,7 @@ export function computeAnimalPrice(animal: Animal): number {
   const initialPrice = animal.gender === Gender.Female ? price * 2 : price;
 
   const age = Math.floor(
-    (Date.now() - animal.birthDate.getTime()) / millisecondsPerYear
+    (Date.now() - animal.bornAt.getTime()) / millisecondsPerYear
   );
 
   return Math.round(initialPrice * Math.max(0, 1 - 0.2 * age));
