@@ -18,7 +18,7 @@ describe('computeAnimalPrice', () => {
     const cat = createAnimal({
       type: AnimalType.Cat,
       gender: Gender.Female,
-      birthDate: new Date(2025, 1, 1)
+      bornAt: new Date(2025, 1, 1)
     });
     expect(computeAnimalPrice(cat)).toEqual(0);
   });
@@ -27,7 +27,7 @@ describe('computeAnimalPrice', () => {
     const dog = createAnimal({
       type: AnimalType.Dog,
       gender: Gender.Male,
-      birthDate: new Date(2025, 1, 1)
+      bornAt: new Date(2025, 1, 1)
     });
     expect(computeAnimalPrice(dog)).toEqual(300);
   });
@@ -36,7 +36,7 @@ describe('computeAnimalPrice', () => {
     const sheep = createAnimal({
       type: AnimalType.Sheep,
       gender: Gender.Male,
-      birthDate: new Date(2025, 1, 1)
+      bornAt: new Date(2025, 1, 1)
     });
     expect(computeAnimalPrice(sheep)).toEqual(100);
   });
@@ -45,7 +45,7 @@ describe('computeAnimalPrice', () => {
     const sheep = createAnimal({
       type: AnimalType.Sheep,
       gender: Gender.Female,
-      birthDate: new Date(2025, 1, 1)
+      bornAt: new Date(2025, 1, 1)
     });
     expect(computeAnimalPrice(sheep)).toEqual(200);
   });
@@ -55,7 +55,7 @@ describe('computeAnimalPrice', () => {
       type: AnimalType.Dog,
       gender: Gender.Male,
       /* 4 years old. */
-      birthDate: new Date(2020, 12, 1)
+      bornAt: new Date(2020, 12, 1)
     });
     expect(computeAnimalPrice(oldDog)).toEqual(60);
   });
@@ -64,7 +64,7 @@ describe('computeAnimalPrice', () => {
     const veryOldDog = createAnimal({
       type: AnimalType.Dog,
       gender: Gender.Male,
-      birthDate: new Date(2000, 1, 1)
+      bornAt: new Date(2000, 1, 1)
     });
     expect(computeAnimalPrice(veryOldDog)).toEqual(0);
   });
