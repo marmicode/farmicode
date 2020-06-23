@@ -47,7 +47,7 @@ describe('AnimalSearchComponent', () => {
     jest.spyOn(animalSearch, 'search').mockReturnValue(of([dolly, missy]));
 
     /* 🎬 Action! */
-    component.search('🐈|🐑');
+    search('🐈|🐑');
     fixture.detectChanges();
 
     /* Check animal search service has been called properly. */
@@ -58,4 +58,9 @@ describe('AnimalSearchComponent', () => {
     const animalListEl = fixture.debugElement.query(By.css('fz-animal-list'));
     expect(animalListEl.properties.animals).toEqual([dolly, missy]);
   });
+
+  function search(keywords: string) {
+    component.searchForm.patchValue({ keywords });
+    component.search();
+  }
 });
