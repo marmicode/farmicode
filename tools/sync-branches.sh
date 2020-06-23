@@ -35,4 +35,14 @@ cascade_changes \
   ut-02-first-unit-test \
   ut-03-jest-test-each \
   ut-04-progressive-tdd \
-  ut-05-spies
+  ut-05-spies \
+  ut-06-component-shallow-testing-boilerplate \
+  ut-07-component-shallow-testing \
+  ut-08-component-refactoring-async-pipe \
+  ut-09-component-integration-testing \
+  ut-10-component-dom-testing \
+  ut-11-component-harness \
+  ut-12-form-testing \
+  ut-13-form-testing-with-harness \
+  ut-14-component-output-testing \
+  ut-15-http-testing
