@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Animal } from '../animal';
+import { map } from 'rxjs/operators';
+import { Animal, createAnimal } from '../animal';
 
 /**
  * @deprecated 🚧 Work in progress.
@@ -9,7 +11,15 @@ import { Animal } from '../animal';
   providedIn: 'root'
 })
 export class AnimalSearch {
+  constructor(private _httpClient: HttpClient) {}
+
   search({ keywords }: { keywords: string }): Observable<Animal[]> {
-    throw new Error('🚧 work in progress!');
+    return this._httpClient
+      .get<Partial<Animal>[]>('http://localhost:3000/', {
+        params: {
+          q: keywords
+        }
+      })
+      .pipe(map(response => response.map(item => createAnimal(item))));
   }
 }

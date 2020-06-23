@@ -1,5 +1,6 @@
 import { HarnessLoader } from '@angular/cdk/testing';
 import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
+import { HttpClient } from '@angular/common/http';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { Animal, AnimalType, createAnimal, Gender } from '../animal';
@@ -22,7 +23,15 @@ describe('AnimalSearchComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [AnimalSearchModule]
+      imports: [AnimalSearchModule],
+      providers: [
+        {
+          provide: AnimalSearch,
+          useValue: {
+            search: jest.fn().mockReturnValue(of([dolly, missy]))
+          }
+        }
+      ]
     }).compileComponents();
   }));
 
@@ -54,10 +63,6 @@ describe('AnimalSearchComponent', () => {
 
   let cart: Cart;
   beforeEach(() => (cart = TestBed.inject(Cart)));
-
-  beforeEach(() => {
-    jest.spyOn(animalSearch, 'search').mockReturnValue(of([dolly, missy]));
-  });
 
   it('should search for animals', async () => {
     jest.spyOn(animalSearch, 'search').mockReturnValue(of([dolly, missy]));

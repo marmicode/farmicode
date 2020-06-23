@@ -19,11 +19,16 @@ export interface Animal {
 }
 
 export function createAnimal(animal: Partial<Animal>): Animal {
+  const bornAt =
+    typeof animal.bornAt === 'string'
+      ? new Date(Date.parse(animal.bornAt))
+      : animal.bornAt;
+
   return {
     id: animal.id,
     type: animal.type,
     name: animal.name,
-    bornAt: animal.bornAt,
+    bornAt,
     gender: animal.gender,
     price: animal.price
   };
