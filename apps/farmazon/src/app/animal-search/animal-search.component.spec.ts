@@ -1,15 +1,14 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
-import { AnimalType, createAnimal, Gender } from '../../cart/animal';
-import { AnimalListComponent } from '../animal-list/animal-list.component';
-import { AnimalSearch } from '../animal-search.service';
+import { AnimalType, createAnimal, Gender } from '../animal';
+import { AnimalListComponent } from './animal-list.component';
 
 import {
   AnimalSearchComponent,
   AnimalSearchModule
 } from './animal-search.component';
+import { AnimalSearch } from './animal-search.service';
 
 describe('AnimalSearchComponent', () => {
   let component: AnimalSearchComponent;
@@ -35,7 +34,7 @@ describe('AnimalSearchComponent', () => {
       id: 'dolly',
       name: 'Dolly',
       type: AnimalType.Sheep,
-      gender: Gender.Other,
+      gender: Gender.Female,
       price: 1000
     });
 
@@ -50,14 +49,15 @@ describe('AnimalSearchComponent', () => {
     jest.spyOn(animalSearch, 'search').mockReturnValue(of([dolly, missy]));
 
     /* 🎬 Action! */
-    component.search('🐈');
+    component.search('🐈|🐑');
     fixture.detectChanges();
 
     /* Check animal search service has been called properly. */
     expect(animalSearch.search).toHaveBeenCalledTimes(1);
-    expect(animalSearch.search).toHaveBeenCalledWith({ keywords: '🐈' });
+    expect(animalSearch.search).toHaveBeenCalledWith({ keywords: '🐈|🐑' });
 
-    /* Check that animals are passed to animal list component. */
+    /* Check that animals are passed to animal list component.
+     * We can't do better for now as the component is not displaying animals yet. */
     const animalListEl = fixture.debugElement.query(
       By.directive(AnimalListComponent)
     );
