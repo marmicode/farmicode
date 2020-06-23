@@ -1,18 +1,17 @@
 import { Component, Input, NgModule, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Animal } from '../../cart/animal';
+import { Animal } from '../animal';
 
 @Component({
   selector: 'fz-animal-list',
-  templateUrl: './animal-list.component.html',
-  styleUrls: ['./animal-list.component.css']
+  template: `
+    <ul>
+      <li *ngFor="let animal of animals">{{ animal.name }}</li>
+    </ul>
+  `
 })
-export class AnimalListComponent implements OnInit {
+export class AnimalListComponent {
   @Input() animals: Animal[];
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }
 
 @NgModule({

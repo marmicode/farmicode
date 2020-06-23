@@ -5,7 +5,7 @@ export class AnimalListHarness extends ComponentHarness {
 
   private _getAnimalNameElList = this.locatorForAll('li');
 
-  async getAnimalNameList(): Promise<string[]> {
+  async getAnimalNames(): Promise<string[]> {
     const elList = await this._getAnimalNameElList();
     return Promise.all(elList.map(el => el.text()));
   }
