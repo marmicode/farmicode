@@ -1,6 +1,7 @@
 import { HarnessLoader } from '@angular/cdk/testing';
 import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
 import { AnimalType, createAnimal, Gender } from '../animal';
 import { AnimalListHarness } from './animal-list.component.harness';
@@ -9,7 +10,6 @@ import {
   AnimalSearchComponent,
   AnimalSearchModule
 } from './animal-search.component';
-import { AnimalSearchHarness } from './animal-search.component.harness';
 import { AnimalSearch } from './animal-search.service';
 
 describe('AnimalSearchComponent', () => {
@@ -68,10 +68,11 @@ describe('AnimalSearchComponent', () => {
   });
 
   async function search(keywords: string) {
-    const harness = await TestbedHarnessEnvironment.harnessForFixture(
-      fixture,
-      AnimalSearchHarness
-    );
-    await harness.search(keywords);
+    const inputEl = fixture.debugElement.query(By.css('input'));
+    inputEl.nativeElement.value = keywords;
+    inputEl.nativeElement.dispatchEvent(new Event('input'));
+    fixture.debugElement
+      .query(By.css('form'))
+      .triggerEventHandler('submit', {});
   }
 });
