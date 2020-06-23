@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Animal } from '../cart/animal';
+import { Animal } from '../animal';
 
 /**
  * @deprecated 🚧 Work in progress.

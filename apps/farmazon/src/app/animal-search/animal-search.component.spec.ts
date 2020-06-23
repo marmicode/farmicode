@@ -2,10 +2,10 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
-import { AnimalType, createAnimal, Gender } from '../../cart/animal';
-import { AnimalSearch } from '../animal-search.service';
+import { AnimalType, createAnimal, Gender } from '../animal';
 
 import { AnimalSearchComponent } from './animal-search.component';
+import { AnimalSearch } from './animal-search.service';
 
 describe('AnimalSearchComponent', () => {
   let component: AnimalSearchComponent;
@@ -32,7 +32,7 @@ describe('AnimalSearchComponent', () => {
       id: 'dolly',
       name: 'Dolly',
       type: AnimalType.Sheep,
-      gender: Gender.Other,
+      gender: Gender.Female,
       price: 1000
     });
 
@@ -47,12 +47,12 @@ describe('AnimalSearchComponent', () => {
     jest.spyOn(animalSearch, 'search').mockReturnValue(of([dolly, missy]));
 
     /* 🎬 Action! */
-    component.search('🐈');
+    component.search('🐈|🐑');
     fixture.detectChanges();
 
     /* Check animal search service has been called properly. */
     expect(animalSearch.search).toHaveBeenCalledTimes(1);
-    expect(animalSearch.search).toHaveBeenCalledWith({ keywords: '🐈' });
+    expect(animalSearch.search).toHaveBeenCalledWith({ keywords: '🐈|🐑' });
 
     /* Check that animals are passed to animal list component. */
     const animalListEl = fixture.debugElement.query(By.css('fz-animal-list'));
