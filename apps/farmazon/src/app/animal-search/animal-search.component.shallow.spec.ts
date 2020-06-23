@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
 import { AnimalType, createAnimal, Gender } from '../animal';
+import { Cart } from '../cart.service';
 
 import { AnimalSearchComponent } from './animal-search.component';
 import { AnimalSearch } from './animal-search.service';
@@ -26,6 +27,9 @@ describe('AnimalSearchComponent', () => {
 
   let animalSearch: AnimalSearch;
   beforeEach(() => (animalSearch = TestBed.inject(AnimalSearch)));
+
+  let cart: Cart;
+  beforeEach(() => (cart = TestBed.inject(Cart)));
 
   it('should search for animals', () => {
     const dolly = createAnimal({
@@ -57,6 +61,21 @@ describe('AnimalSearchComponent', () => {
     /* Check that animals are passed to animal list component. */
     const animalListEl = fixture.debugElement.query(By.css('fz-animal-list'));
     expect(animalListEl.properties.animals).toEqual([dolly, missy]);
+  });
+
+  it('should add animal to cart on buy', () => {
+    const animal = createAnimal({ name: 'Dolly' });
+
+    jest.spyOn(cart, 'addAnimal');
+
+    /* Trigger animalBuy output. */
+    const animalListEl = fixture.debugElement.query(By.css('fz-animal-list'));
+    animalListEl.listeners
+      .find(listener => listener.name === 'animalBuy')
+      .callback(animal);
+
+    expect(cart.addAnimal).toBeCalledTimes(1);
+    expect(cart.addAnimal).toBeCalledWith(animal);
   });
 
   function search(keywords: string) {
