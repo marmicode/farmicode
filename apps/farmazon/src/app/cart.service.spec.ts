@@ -20,7 +20,7 @@ describe('CartService', () => {
       id: 'dolly',
       name: 'Dolly',
       type: AnimalType.Sheep,
-      gender: Gender.Other,
+      gender: Gender.Female,
       price: 1000
     });
     missy = createAnimal({

@@ -6,23 +6,24 @@ export enum AnimalType {
 
 export enum Gender {
   Female = 'female',
-  Male = 'male',
-  Other = 'other'
+  Male = 'male'
 }
 
 export interface Animal {
   id: string;
-  name: string;
   type: AnimalType;
+  name: string;
+  bornAt: Date;
   gender: Gender;
   price: number;
 }
 
-export function createAnimal(animal: Animal): Animal {
+export function createAnimal(animal: Partial<Animal>): Animal {
   return {
     id: animal.id,
-    name: animal.name,
     type: animal.type,
+    name: animal.name,
+    bornAt: animal.bornAt,
     gender: animal.gender,
     price: animal.price
   };
