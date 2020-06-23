@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'fz-animal-search',
-  templateUrl: './animal-search.component.html',
-  styleUrls: ['./animal-search.component.css']
+  template: `
+    🚧 &lt;fz-animal-search&gt;
+  `
 })
 export class AnimalSearchComponent implements OnInit {
   constructor() {}
