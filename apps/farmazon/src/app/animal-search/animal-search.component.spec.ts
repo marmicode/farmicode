@@ -3,6 +3,7 @@ import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
 import { AnimalType, createAnimal, Gender } from '../animal';
 import { AnimalListComponent } from './animal-list.component';
+import { getAnimalListTestHelper } from './animal-list.test-helper';
 
 import {
   AnimalSearchComponent,
@@ -56,11 +57,15 @@ describe('AnimalSearchComponent', () => {
     expect(animalSearch.search).toHaveBeenCalledTimes(1);
     expect(animalSearch.search).toHaveBeenCalledWith({ keywords: '🐈|🐑' });
 
-    /* Check that animals are passed to animal list component.
-     * We can't do better for now as the component is not displaying animals yet. */
+    /* Check that animals are passed to animal list component. */
+    expect(getAnimalNames()).toEqual(['Dolly', 'Missy']);
+  });
+
+  function getAnimalNames() {
     const animalListEl = fixture.debugElement.query(
       By.directive(AnimalListComponent)
     );
-    expect(animalListEl.componentInstance.animals).toEqual([dolly, missy]);
-  });
+
+    return getAnimalListTestHelper(animalListEl).getAnimalNames();
+  }
 });

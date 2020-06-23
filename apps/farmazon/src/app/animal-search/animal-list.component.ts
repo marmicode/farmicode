@@ -5,7 +5,9 @@ import { Animal } from '../animal';
 @Component({
   selector: 'fz-animal-list',
   template: `
-    🚧 &lt;fz-animal-list&gt;
+    <ul>
+      <li *ngFor="let animal of animals">{{ animal.name }}</li>
+    </ul>
   `
 })
 export class AnimalListComponent {
