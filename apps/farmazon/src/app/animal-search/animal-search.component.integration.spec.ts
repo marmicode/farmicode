@@ -2,7 +2,8 @@ import { HarnessLoader } from '@angular/cdk/testing';
 import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
-import { AnimalType, createAnimal, Gender } from '../animal';
+import { Animal, AnimalType, createAnimal, Gender } from '../animal';
+import { Cart } from '../cart.service';
 import { AnimalListHarness } from './animal-list.component.harness';
 
 import {
@@ -16,6 +17,8 @@ describe('AnimalSearchComponent', () => {
   let component: AnimalSearchComponent;
   let fixture: ComponentFixture<AnimalSearchComponent>;
   let loader: HarnessLoader;
+  let dolly: Animal;
+  let missy: Animal;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -28,13 +31,8 @@ describe('AnimalSearchComponent', () => {
     component = fixture.componentInstance;
     loader = TestbedHarnessEnvironment.loader(fixture);
     fixture.detectChanges();
-  });
 
-  let animalSearch: AnimalSearch;
-  beforeEach(() => (animalSearch = TestBed.inject(AnimalSearch)));
-
-  it('should search for animals', async () => {
-    const dolly = createAnimal({
+    dolly = createAnimal({
       id: 'dolly',
       name: 'Dolly',
       type: AnimalType.Sheep,
@@ -42,14 +40,26 @@ describe('AnimalSearchComponent', () => {
       price: 1000
     });
 
-    const missy = createAnimal({
+    missy = createAnimal({
       id: 'missy',
       name: 'Missy',
       type: AnimalType.Cat,
       gender: Gender.Female,
       price: 300
     });
+  });
 
+  let animalSearch: AnimalSearch;
+  beforeEach(() => (animalSearch = TestBed.inject(AnimalSearch)));
+
+  let cart: Cart;
+  beforeEach(() => (cart = TestBed.inject(Cart)));
+
+  beforeEach(() => {
+    jest.spyOn(animalSearch, 'search').mockReturnValue(of([dolly, missy]));
+  });
+
+  it('should search for animals', async () => {
     jest.spyOn(animalSearch, 'search').mockReturnValue(of([dolly, missy]));
 
     /* 🎬 Action! */
@@ -65,6 +75,19 @@ describe('AnimalSearchComponent', () => {
       'Dolly',
       'Missy'
     ]);
+  });
+
+  it('should buy animal', async () => {
+    jest.spyOn(cart, 'addAnimal');
+
+    /* 🎬 Action! */
+    await search('🐈|🐑');
+
+    const animalListHarness = await loader.getHarness(AnimalListHarness);
+    await animalListHarness.buyFirstAnimal();
+
+    expect(cart.addAnimal).toBeCalledTimes(1);
+    expect(cart.addAnimal).toBeCalledWith(dolly);
   });
 
   async function search(keywords: string) {
