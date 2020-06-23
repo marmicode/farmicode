@@ -1,30 +1,21 @@
 import { HarnessLoader } from '@angular/cdk/testing';
 import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
-import { AnimalType, createAnimal, Gender } from '../../cart/animal';
-import { AnimalListHarness } from '../animal-list/animal-list.component.harness';
-import { AnimalSearch } from '../animal-search.service';
+import { AnimalType, createAnimal, Gender } from '../animal';
+import { AnimalListHarness } from './animal-list.component.harness';
 
 import {
   AnimalSearchComponent,
   AnimalSearchModule
 } from './animal-search.component';
 import { AnimalSearchHarness } from './animal-search.component.harness';
+import { AnimalSearch } from './animal-search.service';
 
 describe('AnimalSearchComponent', () => {
   let component: AnimalSearchComponent;
   let fixture: ComponentFixture<AnimalSearchComponent>;
   let loader: HarnessLoader;
-
-  async function search(keywords: string) {
-    const harness = await TestbedHarnessEnvironment.harnessForFixture(
-      fixture,
-      AnimalSearchHarness
-    );
-    await harness.search(keywords);
-  }
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -47,7 +38,7 @@ describe('AnimalSearchComponent', () => {
       id: 'dolly',
       name: 'Dolly',
       type: AnimalType.Sheep,
-      gender: Gender.Other,
+      gender: Gender.Female,
       price: 1000
     });
 
@@ -62,17 +53,25 @@ describe('AnimalSearchComponent', () => {
     jest.spyOn(animalSearch, 'search').mockReturnValue(of([dolly, missy]));
 
     /* 🎬 Action! */
-    await search('🐈');
+    await search('🐈|🐑');
 
     /* Check animal search service has been called properly. */
     expect(animalSearch.search).toHaveBeenCalledTimes(1);
-    expect(animalSearch.search).toHaveBeenCalledWith({ keywords: '🐈' });
+    expect(animalSearch.search).toHaveBeenCalledWith({ keywords: '🐈|🐑' });
 
     /* Check that animals are displayed. */
     const animalListHarness = await loader.getHarness(AnimalListHarness);
-    expect(await animalListHarness.getAnimalNameList()).toEqual([
+    expect(await animalListHarness.getAnimalNames()).toEqual([
       'Dolly',
       'Missy'
     ]);
   });
+
+  async function search(keywords: string) {
+    const harness = await TestbedHarnessEnvironment.harnessForFixture(
+      fixture,
+      AnimalSearchHarness
+    );
+    await harness.search(keywords);
+  }
 });

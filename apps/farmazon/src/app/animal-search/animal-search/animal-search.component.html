@@ -1,6 +1,0 @@
-<form [formGroup]="searchForm" (ngSubmit)="search()">
-  <input formControlName="keywords" type="text">
-  <button type="submit">SEARCH</button>
-</form>
-
-<fz-animal-list [animals]="animals$ | async"></fz-animal-list>
