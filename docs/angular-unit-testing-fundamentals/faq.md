@@ -25,3 +25,9 @@ You can use `of` function to create a hardcoded observable.
 ```typescript
 mock.mockReturnValue(of(42));
 ```
+
+## How to import global styles with Storybook
+
+```typescript
+import '!style-loader!css-loader!@angular/material/prebuilt-themes/indigo-pink.css';
+```
