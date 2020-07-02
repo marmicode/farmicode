@@ -27,11 +27,11 @@ function cascade_changes() {
 }
 
 cascade_changes --skip-tests \
-  boilerplate \
+  master \
   ut-01-karma-jasmine-boilerplate
 
 cascade_changes \
-  boilerplate \
+  master \
   ut-02-first-unit-test \
   ut-03-jest-test-each \
   ut-04-progressive-tdd \
