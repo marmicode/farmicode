@@ -4,9 +4,6 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Animal, createAnimal } from '../animal';
 
-/**
- * @deprecated 🚧 Work in progress.
- */
 @Injectable({
   providedIn: 'root'
 })
