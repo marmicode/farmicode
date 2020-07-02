@@ -70,9 +70,7 @@ describe('AnimalSearchComponent', () => {
 
     /* Trigger animalBuy output. */
     const animalListEl = fixture.debugElement.query(By.css('fz-animal-list'));
-    animalListEl.listeners
-      .find(listener => listener.name === 'animalBuy')
-      .callback(animal);
+    animalListEl.triggerEventHandler('animalBuy', animal);
 
     expect(cart.addAnimal).toBeCalledTimes(1);
     expect(cart.addAnimal).toBeCalledWith(animal);
