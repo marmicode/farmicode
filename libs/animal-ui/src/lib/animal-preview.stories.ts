@@ -1,7 +1,7 @@
 import {
   AnimalPreviewComponent,
   AnimalPreviewModule
-} from '@farmazon/animal-ui';
+} from './animal-preview.component';
 
 export default {
   title: 'AnimalPreviewComponent'
