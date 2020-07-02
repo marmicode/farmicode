@@ -1,1 +1,4 @@
-export * from './lib/animal-ui.module';
+export {
+  AnimalPreviewComponent,
+  AnimalPreviewModule
+} from './lib/animal-preview.component';

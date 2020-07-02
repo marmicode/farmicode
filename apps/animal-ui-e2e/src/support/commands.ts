@@ -1,8 +1,11 @@
 import { addMatchImageSnapshotCommand } from 'cypress-image-snapshot/command';
 
-declare namespace Cypress {
-  interface Chainable<Subject> {
-    matchImageSnapshot(name?: string): void;
+// eslint-disable-next-line @typescript-eslint/no-namespace
+declare global {
+  namespace Cypress {
+    interface Chainable<Subject> {
+      matchImageSnapshot(name?: string): void;
+    }
   }
 }
 
