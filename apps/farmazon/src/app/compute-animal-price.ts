@@ -1,4 +1,4 @@
-import { Animal, AnimalType, Gender } from './animal';
+import { Animal, AnimalType, Gender } from '@farmazon/animal-core';
 
 export const priceMap = new Map([
   [AnimalType.Cat, 0],

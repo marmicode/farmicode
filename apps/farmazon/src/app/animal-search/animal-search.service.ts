@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Animal, createAnimal } from '../animal';
+import { Animal, createAnimal } from '@farmazon/animal-core';
 
 @Injectable({
   providedIn: 'root'

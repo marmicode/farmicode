@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Animal } from './animal';
+import { Animal } from '@farmazon/animal-core';
 
 @Injectable({
   providedIn: 'root'

@@ -1,9 +1,13 @@
 import { HarnessLoader } from '@angular/cdk/testing';
 import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
-import { HttpClient } from '@angular/common/http';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  Animal,
+  AnimalType,
+  createAnimal,
+  Gender
+} from '@farmazon/animal-core';
 import { of } from 'rxjs';
-import { Animal, AnimalType, createAnimal, Gender } from '../animal';
 import { Cart } from '../cart.service';
 import { AnimalListHarness } from './animal-list.component.harness';
 

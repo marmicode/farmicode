@@ -3,7 +3,7 @@ import { Component, NgModule } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { Animal } from '../animal';
+import { Animal } from '@farmazon/animal-core';
 import { Cart } from '../cart.service';
 import { AnimalListModule } from './animal-list.component';
 import { AnimalSearch } from './animal-search.service';

@@ -1,4 +1,4 @@
-import { AnimalType, createAnimal, Gender } from './animal';
+import { AnimalType, createAnimal, Gender } from '@farmazon/animal-core';
 import { computeAnimalPrice } from './compute-animal-price';
 
 describe('computeAnimalPrice', () => {

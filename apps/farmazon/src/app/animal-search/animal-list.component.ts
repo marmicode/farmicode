@@ -6,7 +6,7 @@ import {
   NgModule,
   Output
 } from '@angular/core';
-import { Animal } from '../animal';
+import { Animal } from '@farmazon/animal-core';
 
 @Component({
   selector: 'fz-animal-list',

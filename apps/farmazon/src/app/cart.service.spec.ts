@@ -1,5 +1,10 @@
 import { TestBed } from '@angular/core/testing';
-import { Animal, AnimalType, createAnimal, Gender } from './animal';
+import {
+  Animal,
+  AnimalType,
+  createAnimal,
+  Gender
+} from '@farmazon/animal-core';
 
 import { Cart } from './cart.service';
 

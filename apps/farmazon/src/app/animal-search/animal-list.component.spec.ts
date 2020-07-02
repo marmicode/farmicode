@@ -1,6 +1,6 @@
 import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { createAnimal } from '../animal';
+import { createAnimal } from '@farmazon/animal-core';
 
 import { AnimalListComponent } from './animal-list.component';
 import { AnimalListHarness } from './animal-list.component.harness';

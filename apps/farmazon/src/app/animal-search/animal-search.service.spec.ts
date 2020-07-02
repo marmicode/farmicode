@@ -3,7 +3,7 @@ import {
   HttpTestingController
 } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { AnimalType, createAnimal } from '../animal';
+import { AnimalType, createAnimal } from '@farmazon/animal-core';
 
 import { AnimalSearch } from './animal-search.service';
 

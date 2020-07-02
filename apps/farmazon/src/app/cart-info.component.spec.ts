@@ -1,6 +1,6 @@
 import { async, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
-import { createAnimal } from './animal';
+import { createAnimal } from '@farmazon/animal-core';
 import { CartInfoComponent } from './cart-info.component';
 import { Cart } from './cart.service';
 
