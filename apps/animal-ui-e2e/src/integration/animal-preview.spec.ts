@@ -1,4 +1,4 @@
 describe('AnimalPreviewComponent', () => {
   beforeEach(() => cy.visit('/iframe.html?id=animalpreviewcomponent--main'));
-  it('should', () => cy.matchImageSnapshot());
+  it('should match image snapshot', () => cy.matchImageSnapshot());
 });

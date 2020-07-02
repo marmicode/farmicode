@@ -9,4 +9,6 @@ declare global {
   }
 }
 
-addMatchImageSnapshotCommand();
+addMatchImageSnapshotCommand({
+  customSnapshotsDir: 'src/snapshots'
+});
