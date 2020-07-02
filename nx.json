@@ -16,10 +16,24 @@
     },
     "farmazon-e2e": {
       "tags": [],
-      "implicitDependencies": ["farmazon"]
+      "implicitDependencies": [
+        "farmazon"
+      ]
     },
     "catalog-api": {
       "tags": []
+    },
+    "animal-ui": {
+      "tags": []
+    },
+    "animal-core": {
+      "tags": []
+    },
+    "animal-ui-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "animal-ui"
+      ]
     }
   }
 }

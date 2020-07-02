@@ -15,7 +15,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@farmazon/animal-ui": ["libs/animal-ui/src/index.ts"],
+      "@farmazon/animal-core": ["libs/animal-core/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

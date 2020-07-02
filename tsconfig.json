@@ -1,12 +1,8 @@
-/*
-  This is a "Solution Style" tsconfig.json file, and is used by editors and TypeScript’s language server to improve development experience.
-  It is not intended to be used to perform a compilation.
-
-  To learn more about this file see: https://angular.io/config/solution-tsconfig.
-*/
 {
   "compilerOptions": {
     "paths": {
+      "@farmazon/animal-ui": ["libs/animal-ui/src/index.ts"],
+      "@farmazon/animal-core": ["libs/animal-core/src/index.ts"]
     }
   },
   "files": [],
@@ -25,6 +21,18 @@
     },
     {
       "path": "./apps/catalog-api/tsconfig.spec.json"
+    },
+    {
+      "path": "./animal-ui/tsconfig.lib.json"
+    },
+    {
+      "path": "./animal-ui/tsconfig.spec.json"
+    },
+    {
+      "path": "./animal-core/tsconfig.lib.json"
+    },
+    {
+      "path": "./animal-core/tsconfig.spec.json"
     }
   ]
 }
