@@ -45,4 +45,5 @@ cascade_changes \
   ut-12-form-testing \
   ut-13-form-testing-with-harness \
   ut-14-component-output-testing \
-  ut-15-http-testing
+  ut-15-http-testing \
+  ut-16-visual-regression-testing-boilerplate
