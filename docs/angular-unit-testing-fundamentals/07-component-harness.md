@@ -9,7 +9,7 @@ yarn add @angular/cdk
 # 2. Run tests
 
 ```sh
-yarn test farmazon --watch
+yarn test farmicode --watch
 ```
 
 # 3. Create a harness for `<fz-animal-list>`
