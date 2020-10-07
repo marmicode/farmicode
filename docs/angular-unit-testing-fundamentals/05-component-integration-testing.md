@@ -9,7 +9,7 @@ yarn
 # 2. Run tests
 
 ```sh
-yarn test farmazon --watch
+yarn test farmicode --watch
 ```
 
 # 3. Make sure `<fz-animal-search>` and `<fz-animal-list>` communicate correctly
