@@ -80,7 +80,7 @@ or `~\AppData\Roaming\JetBrains\IntelliJIdea2020.1\jba_config\templates/Marmicod
 ## 3.3. by directly skipping to boilerplate 👹
 
 ```sh
-git checkout ut-06-component-shallow-test-boilerplate
+git checkout ut-06-component-shallow-testing-boilerplate
 ```
 
 # 4. Search for animals

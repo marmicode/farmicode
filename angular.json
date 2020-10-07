@@ -79,7 +79,7 @@
               "apps/farmazon/tsconfig.app.json",
               "apps/farmazon/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/farmazon/**"]
+            "exclude": ["**/node_modules/**", "!apps/farmazon/**/*"]
           }
         },
         "test": {
@@ -118,7 +118,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": ["apps/farmazon-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/farmazon-e2e/**"]
+            "exclude": ["**/node_modules/**", "!apps/farmazon-e2e/**/*"]
           }
         }
       }
@@ -136,7 +136,8 @@
             "outputPath": "dist/apps/catalog-api",
             "main": "apps/catalog-api/src/main.ts",
             "tsConfig": "apps/catalog-api/tsconfig.app.json",
-            "assets": ["apps/catalog-api/src/assets"]
+            "assets": ["apps/catalog-api/src/assets"],
+            "buildLibsFromSource": true
           },
           "configurations": {
             "production": {
@@ -165,14 +166,13 @@
               "apps/catalog-api/tsconfig.app.json",
               "apps/catalog-api/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/catalog-api/**"]
+            "exclude": ["**/node_modules/**", "!apps/catalog-api/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/catalog-api/jest.config.js",
-            "tsConfig": "apps/catalog-api/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }
