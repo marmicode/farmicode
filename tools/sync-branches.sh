@@ -16,7 +16,7 @@ function cascade_changes() {
 
     git checkout $CURRENT
     git merge --no-edit $PARENT
-    [ "$SKIP_TESTS" = "true" ] || yarn test
+    [ "$SKIP_TESTS" = "true" ] || yarn affected:test --all
 
     PARENT="$CURRENT"
 
