@@ -54,6 +54,6 @@ Update the function.
 # 5. Migrate to Jest
 
 ```sh
-git checkout boilerplate
+git checkout master
 yarn test farmazon --watch
 ```

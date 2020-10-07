@@ -35,6 +35,8 @@ console.log(debugEl.listeners); // [{name: 'animalBuy', callback: ...}]
 
 5. Check that `Cart.addAnimal` was called with the right animal.
 
+6. Replace manual callback call by `debugEl.triggerEventHandler('animalAdd', animal)`.
+
 ### 3.1.2. Test `<fz-animal-list>`
 
 1. Create an `animal-list.component.spec.ts` file.
