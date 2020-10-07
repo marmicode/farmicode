@@ -8,7 +8,8 @@
     },
     "tsconfig.json": "*",
     "tslint.json": "*",
-    "nx.json": "*"
+    "nx.json": "*",
+    ".eslintrc.json": "*"
   },
   "projects": {
     "farmazon": {
@@ -35,5 +36,16 @@
         "animal-ui"
       ]
     }
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
+  },
+  "affected": {
+    "defaultBase": "master"
   }
 }
