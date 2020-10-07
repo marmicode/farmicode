@@ -1,35 +1,35 @@
 {
   "version": 1,
   "projects": {
-    "farmazon": {
+    "farmicode": {
       "projectType": "application",
       "schematics": {},
-      "root": "apps/farmazon",
-      "sourceRoot": "apps/farmazon/src",
-      "prefix": "fz",
+      "root": "apps/farmicode",
+      "sourceRoot": "apps/farmicode/src",
+      "prefix": "fc",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/farmazon",
-            "index": "apps/farmazon/src/index.html",
-            "main": "apps/farmazon/src/main.ts",
-            "polyfills": "apps/farmazon/src/polyfills.ts",
-            "tsConfig": "apps/farmazon/tsconfig.app.json",
+            "outputPath": "dist/apps/farmicode",
+            "index": "apps/farmicode/src/index.html",
+            "main": "apps/farmicode/src/main.ts",
+            "polyfills": "apps/farmicode/src/polyfills.ts",
+            "tsConfig": "apps/farmicode/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "apps/farmazon/src/favicon.ico",
-              "apps/farmazon/src/assets"
+              "apps/farmicode/src/favicon.ico",
+              "apps/farmicode/src/assets"
             ],
-            "styles": ["apps/farmazon/src/styles.css"],
+            "styles": ["apps/farmicode/src/styles.css"],
             "scripts": []
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/farmazon/src/environments/environment.ts",
-                  "with": "apps/farmazon/src/environments/environment.prod.ts"
+                  "replace": "apps/farmicode/src/environments/environment.ts",
+                  "with": "apps/farmicode/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -58,62 +58,62 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "farmazon:build"
+            "browserTarget": "farmicode:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "farmazon:build:production"
+              "browserTarget": "farmicode:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "farmazon:build"
+            "browserTarget": "farmicode:build"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "apps/farmazon/tsconfig.app.json",
-              "apps/farmazon/tsconfig.spec.json"
+              "apps/farmicode/tsconfig.app.json",
+              "apps/farmicode/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/farmazon/**/*"]
+            "exclude": ["**/node_modules/**", "!apps/farmicode/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/farmazon/jest.config.js",
+            "jestConfig": "apps/farmicode/jest.config.js",
             "passWithNoTests": true
           }
         }
       }
     },
-    "farmazon-e2e": {
-      "root": "apps/farmazon-e2e",
-      "sourceRoot": "apps/farmazon-e2e/src",
+    "farmicode-e2e": {
+      "root": "apps/farmicode-e2e",
+      "sourceRoot": "apps/farmicode-e2e/src",
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@nrwl/cypress:cypress",
           "options": {
-            "cypressConfig": "apps/farmazon-e2e/cypress.json",
-            "tsConfig": "apps/farmazon-e2e/tsconfig.e2e.json",
-            "devServerTarget": "farmazon:serve"
+            "cypressConfig": "apps/farmicode-e2e/cypress.json",
+            "tsConfig": "apps/farmicode-e2e/tsconfig.e2e.json",
+            "devServerTarget": "farmicode:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "farmazon:serve:production"
+              "devServerTarget": "farmicode:serve:production"
             }
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/farmazon-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/farmazon-e2e/**/*"]
+            "tsConfig": ["apps/farmicode-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/farmicode-e2e/**/*"]
           }
         }
       }
@@ -186,5 +186,5 @@
       "unitTestRunner": "jest"
     }
   },
-  "defaultProject": "farmazon"
+  "defaultProject": "farmicode"
 }
