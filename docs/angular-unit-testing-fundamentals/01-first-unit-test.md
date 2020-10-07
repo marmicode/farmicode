@@ -9,7 +9,7 @@ yarn
 # 2. Run tests
 
 ```sh
-yarn test farmazon --watch
+yarn test farmicode --watch
 ```
 
 # 3. Implement first test
@@ -25,9 +25,9 @@ yarn test farmazon --watch
 
 ## 3.2. Files
 
-Function file: `apps/farmazon/src/app/compute-animal-price.ts`.
+Function file: `apps/farmicode/src/app/compute-animal-price.ts`.
 
-Test file: `apps/farmazon/src/app/compute-animal-price.spec.ts`
+Test file: `apps/farmicode/src/app/compute-animal-price.spec.ts`
 
 ### Test example
 
@@ -55,5 +55,5 @@ Update the function.
 
 ```sh
 git checkout master
-yarn test farmazon --watch
+yarn test farmicode --watch
 ```

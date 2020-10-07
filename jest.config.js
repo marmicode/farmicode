@@ -1,3 +1,3 @@
 module.exports = {
-  projects: ['<rootDir>/apps/farmazon', '<rootDir>/apps/catalog-api'],
+  projects: ['<rootDir>/apps/farmicode', '<rootDir>/apps/catalog-api'],
 };
