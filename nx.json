@@ -1,5 +1,5 @@
 {
-  "npmScope": "farmazon",
+  "npmScope": "farmicode",
   "implicitDependencies": {
     "angular.json": "*",
     "package.json": {
@@ -12,12 +12,12 @@
     ".eslintrc.json": "*"
   },
   "projects": {
-    "farmazon": {
+    "farmicode": {
       "tags": []
     },
-    "farmazon-e2e": {
+    "farmicode-e2e": {
       "tags": [],
-      "implicitDependencies": ["farmazon"]
+      "implicitDependencies": ["farmicode"]
     },
     "catalog-api": {
       "tags": []
