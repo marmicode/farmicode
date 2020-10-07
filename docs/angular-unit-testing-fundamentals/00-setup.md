@@ -7,9 +7,9 @@ npm install -g yarn
 # 2. Retrieve source code and install dependencies
 
 ```sh
-git clone git@github.com:marmicode/farmazon.git
+git clone git@github.com:marmicode/farmicode.git
 
-cd farmazon
+cd farmicode
 
 git checkout ut-01-karma-jasmine-boilerplate
 
