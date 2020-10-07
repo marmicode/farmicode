@@ -4,7 +4,7 @@
     "farmicode": {
       "projectType": "application",
       "schematics": {},
-      "root": "apps/farmicode",
+      "root": ".",
       "sourceRoot": "apps/farmicode/src",
       "prefix": "fc",
       "architect": {
