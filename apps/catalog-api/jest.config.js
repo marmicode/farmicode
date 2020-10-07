@@ -1,5 +1,6 @@
 module.exports = {
-  name: 'catalog-api',
-  preset: '../../jest.config.js',
-  coverageDirectory: '../../coverage/apps/catalog-api'
+  preset: '../../jest.preset.js',
+  coverageDirectory: '../../coverage/apps/catalog-api',
+  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'catalog-api',
 };
